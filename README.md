@@ -8,35 +8,24 @@ The Automation Foundry's Claude Code plugin marketplace.
 |---|---|
 | [`ratchet`](./plugins/ratchet) | Ratchet productivity framework — Notion-backed methodology, skills, and vocabulary |
 
-## Install
-
-While this repo is private, `/plugin marketplace add the-automation-foundry/foundry-plugins` may not authenticate cleanly (see `anthropics/claude-code` issues #9756, #17201). The reliable path is to clone manually and add as a local marketplace:
-
-```bash
-git clone git@github.com:the-automation-foundry/foundry-plugins.git \
-  ~/.claude/plugins/marketplaces/the-automation-foundry/foundry-plugins
-```
-
-Then in Claude Code:
-
-```
-/plugin marketplace add ~/.claude/plugins/marketplaces/the-automation-foundry/foundry-plugins
-/plugin install ratchet@foundry-plugins
-```
-
-To update later:
-
-```bash
-cd ~/.claude/plugins/marketplaces/the-automation-foundry/foundry-plugins && git pull
-```
-
-then `/plugin update ratchet` in any Claude session.
-
-When the upstream private-repo auth issue resolves, the simpler form will work:
+## Install (Claude Code)
 
 ```
 /plugin marketplace add the-automation-foundry/foundry-plugins
+/plugin install ratchet@foundry-plugins
 ```
+
+To update: `/plugin update ratchet`. The plugin manifest omits `version`, so updates track the latest commit on the marketplace's default branch.
+
+## Install (OpenClaw)
+
+OpenClaw doesn't speak the Claude Code marketplace protocol. See [`plugins/ratchet/docs/openclaw-install.md`](./plugins/ratchet/docs/openclaw-install.md) for the host-side bootstrap-script pattern (clones a pinned tag, symlinks skills into the workspace).
+
+## Releases
+
+Tagged releases for consumers (like the OpenClaw bootstrap script) that need a deterministic ref:
+
+- [`v0.1.0`](https://github.com/the-automation-foundry/foundry-plugins/releases/tag/v0.1.0) — initial scaffold
 
 ## Adding a new plugin
 

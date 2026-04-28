@@ -1,0 +1,13 @@
+{
+  "name": "foundry-plugins",
+  "owner": {
+    "name": "The Automation Foundry"
+  },
+  "plugins": [
+    {
+      "name": "ratchet",
+      "source": "./plugins/ratchet",
+      "description": "Ratchet productivity framework — Notion-backed methodology, skills, and vocabulary"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "ratchet",
+  "description": "Ratchet productivity framework — Notion-backed methodology, skills, and vocabulary",
+  "author": {
+    "name": "The Automation Foundry"
+  },
+  "skills": "./skills/"
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="72" height="72">
+  <defs>
+    <pattern id="hid" patternUnits="userSpaceOnUse" width="4.5" height="4.5" patternTransform="rotate(60)"><line x1="0" y1="0" x2="0" y2="4.5" stroke="#BF7E4A" stroke-width="2.6"/></pattern>
+    <clipPath id="cid"><circle cx="39" cy="50" r="24"/></clipPath>
+  </defs>
+  <circle cx="61" cy="50" r="24" fill="url(#hid)" clip-path="url(#cid)"/>
+  <circle cx="39" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/>
+  <circle cx="61" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/>
+</svg>

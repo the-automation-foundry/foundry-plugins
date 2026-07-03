@@ -7,6 +7,7 @@ The Automation Foundry's Claude Code plugin marketplace.
 | Plugin | Description |
 |---|---|
 | [`ratchet`](./plugins/ratchet) | Ratchet productivity framework — Notion-backed methodology, skills, and vocabulary |
+| [`foundry-brand`](./plugins/foundry-brand) | Produce and critique communications in The Automation Foundry's brand — design tokens, voice, and manifesto |
 
 ## Install (Claude Code)
 

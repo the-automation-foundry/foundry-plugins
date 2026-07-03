@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Automation Foundry — Brand Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,300;1,7..72,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --base: #F0EFEB;
+    --neutral: #D2D4D0;
+    --primary: #4E6A78;
+    --accent: #BF7E4A;
+    --anchor: #262B2E;
+    --body: #555859;
+    --body-light: #7A7D7F;
+    --primary-faint: rgba(78,106,120,0.08);
+    --accent-faint: rgba(191,126,74,0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    background: var(--base);
+    color: var(--anchor);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(240,239,235,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--neutral);
+    padding: 0 3rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--primary);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem; font-weight: 400; letter-spacing: 0.04em;
+    color: var(--body); text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--anchor); }
+  @media (max-width: 768px) {
+    .nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+  }
+
+  /* Section containers */
+  .section { max-width: 820px; margin: 0 auto; padding: 5rem 2rem; }
+  .section-wide { max-width: 1000px; margin: 0 auto; padding: 5rem 2rem; }
+
+  /* Typography */
+  .eyebrow {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: 'Literata', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400; line-height: 1.15;
+    letter-spacing: -0.02em; color: var(--anchor);
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Literata', serif;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+    font-weight: 400; line-height: 1.2;
+    letter-spacing: -0.01em; color: var(--anchor);
+    margin-bottom: 0.75rem;
+  }
+  h3 {
+    font-family: 'Literata', serif;
+    font-size: 1.15rem; font-weight: 500;
+    line-height: 1.3; color: var(--anchor);
+    margin-bottom: 0.5rem;
+  }
+  h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 0.75rem;
+  }
+  p {
+    font-size: 0.92rem; color: var(--body);
+    line-height: 1.7; max-width: 620px;
+  }
+  p + p { margin-top: 1rem; }
+  .lead {
+    font-family: 'Literata', serif;
+    font-size: 1.1rem; font-weight: 300;
+    line-height: 1.65; color: var(--body);
+    max-width: 580px;
+  }
+  .divider { border: none; border-top: 1px solid var(--neutral); margin: 0; }
+
+  /* Cover */
+  .cover {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 3rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  .cover::before {
+    content: ''; position: absolute; top: -20%; right: -10%;
+    width: 70%; height: 70%;
+    background: radial-gradient(ellipse at center, rgba(78,106,120,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: ''; position: absolute; bottom: -10%; left: -5%;
+    width: 50%; height: 50%;
+    background: radial-gradient(ellipse at center, rgba(191,126,74,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cover-content { max-width: 700px; position: relative; z-index: 1; animation: fadeIn 0.8s ease forwards; }
+  .cover h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 1.5rem; }
+  .cover .lead { margin-bottom: 2.5rem; }
+  .cover-meta { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .cover-meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
+  .cover-meta-item .meta-label {
+    font-size: 0.6rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--primary); opacity: 0.6;
+  }
+  .cover-meta-item .meta-value { font-size: 0.82rem; color: var(--body); }
+
+  /* TOC */
+  .toc {
+    background: white; border-radius: 12px;
+    border: 1px solid var(--neutral); padding: 2.5rem;
+  }
+  .toc-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem; margin-top: 1.5rem;
+  }
+  .toc-group h4 { margin-bottom: 0.6rem; }
+  .toc-group a {
+    display: block; font-size: 0.84rem; color: var(--body);
+    text-decoration: none; padding: 0.25rem 0; transition: color 0.2s;
+  }
+  .toc-group a:hover { color: var(--accent); }
+
+  /* Essence block */
+  .essence-block {
+    background: var(--anchor); border-radius: 14px;
+    padding: 3.5rem; margin: 2rem 0;
+  }
+  .essence-block .eyebrow { color: var(--primary); opacity: 0.7; }
+  .essence-block h2 { color: var(--base); font-size: clamp(1.6rem, 4vw, 2.2rem); margin-bottom: 1rem; }
+  .essence-block p { color: #9EA2A4; max-width: 560px; }
+
+  /* Quality cards */
+  .qualities-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.25rem; margin: 2rem 0;
+  }
+  @media (max-width: 600px) { .qualities-grid { grid-template-columns: 1fr; } }
+  .quality-card {
+    background: white; border: 1px solid var(--neutral);
+    border-radius: 10px; padding: 1.75rem;
+  }
+  .quality-card .quality-pair {
+    font-family: 'Literata', serif; font-size: 1.1rem;
+    font-weight: 400; color: var(--anchor); margin-bottom: 0.6rem;
+  }
+  .quality-card .not { color: var(--body-light); font-style: italic; }
+  .quality-card p { font-size: 0.82rem; line-height: 1.6; }
+
+  /* Values */
+  .values-list { margin: 2rem 0; display: flex; flex-direction: column; gap: 1.75rem; }
+  .value-item { padding-left: 1.5rem; border-left: 2px solid var(--primary); }
+  .value-item h3 { font-size: 1.05rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .value-item p { font-size: 0.84rem; }
+  .value-detail { font-size: 0.78rem !important; color: var(--body-light) !important; font-style: italic; margin-top: 0.4rem; }
+
+  /* Positioning */
+  .positioning-box {
+    background: var(--primary-faint); border-radius: 10px;
+    padding: 2rem 2.25rem; margin: 2rem 0;
+  }
+  .positioning-box p {
+    font-family: 'Literata', serif; font-size: 1rem;
+    font-weight: 300; line-height: 1.7; color: var(--anchor); max-width: 580px;
+  }
+
+  /* Color system */
+  .palette-display {
+    display: flex; border-radius: 12px; overflow: hidden;
+    height: 120px; margin: 2rem 0 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .palette-swatch {
+    display: flex; align-items: flex-end; padding: 0.75rem;
+    transition: flex 0.4s ease; cursor: default;
+  }
+  .palette-swatch:hover { flex: 2.5 !important; }
+  .swatch-info { opacity: 0; transition: opacity 0.3s; white-space: nowrap; }
+  .palette-swatch:hover .swatch-info { opacity: 1; }
+  .swatch-name { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.03em; }
+  .swatch-name.light { color: rgba(255,255,255,0.9); }
+  .swatch-name.dark { color: rgba(0,0,0,0.35); }
+
+  .color-specs {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  @media (max-width: 700px) { .color-specs { grid-template-columns: repeat(3, 1fr); } }
+  .color-spec { display: flex; flex-direction: column; gap: 0.35rem; }
+  .color-spec .dot { width: 36px; height: 36px; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08); }
+  .color-spec .spec-role { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--primary); }
+  .color-spec .spec-name { font-family: 'Literata', serif; font-size: 0.88rem; color: var(--anchor); }
+  .color-spec .spec-hex { font-size: 0.78rem; font-variant-numeric: tabular-nums; color: var(--body); }
+  .color-spec .spec-rgb { font-size: 0.7rem; color: var(--body-light); }
+
+  .proportion-bar { display: flex; border-radius: 6px; overflow: hidden; height: 32px; margin: 1.5rem 0; }
+  .proportion-bar > div {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.04em;
+  }
+
+  /* Typography specimens */
+  .type-specimen {
+    background: white; border: 1px solid var(--neutral);
+    border-radius: 12px; padding: 2.5rem; margin: 1.5rem 0;
+  }
+  .type-scale { display: flex; flex-direction: column; gap: 0.75rem; margin: 1.5rem 0; }
+  .type-scale-row {
+    display: flex; align-items: baseline; gap: 1.25rem;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .type-scale-row .scale-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--primary); width: 80px; flex-shrink: 0;
+  }
+  .type-scale-row .scale-meta { font-size: 0.7rem; color: var(--body-light); width: 160px; flex-shrink: 0; }
+
+  /* Logo */
+  .logo-display {
+    border: 1px solid var(--neutral); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 3.5rem; margin: 1.5rem 0;
+  }
+  .logo-display.on-dark { background: var(--anchor); border-color: transparent; }
+  .logo-display.on-light { background: var(--base); }
+  .logo-variants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+  @media (max-width: 600px) { .logo-variants { grid-template-columns: 1fr; } }
+  .logo-variant {
+    border-radius: 10px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 2rem; gap: 1rem; border: 1px solid var(--neutral);
+  }
+  .logo-variant .variant-label {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--primary); opacity: 0.6;
+  }
+
+  /* Imagery tiers */
+  .imagery-tiers {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.25rem; margin: 2rem 0;
+  }
+  @media (max-width: 700px) { .imagery-tiers { grid-template-columns: 1fr; } }
+  .imagery-tier {
+    background: white; border: 1px solid var(--neutral);
+    border-radius: 10px; padding: 1.75rem;
+  }
+  .imagery-tier .tier-badge {
+    display: inline-block; font-size: 0.55rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.5rem; border-radius: 3px; margin-bottom: 0.75rem;
+  }
+  .tier-primary .tier-badge { background: var(--primary); color: var(--base); }
+  .tier-secondary .tier-badge { background: var(--primary-faint); color: var(--primary); }
+  .tier-tertiary .tier-badge { background: var(--accent-faint); color: var(--accent); }
+  .imagery-tier h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+  .imagery-tier p { font-size: 0.82rem; }
+
+  /* Voice pillars */
+  .voice-pillars {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.25rem; margin: 2rem 0;
+  }
+  @media (max-width: 600px) { .voice-pillars { grid-template-columns: 1fr; } }
+  .voice-pillar {
+    background: white; border: 1px solid var(--neutral);
+    border-radius: 10px; padding: 1.75rem;
+  }
+  .voice-pillar h3 {
+    color: var(--primary); font-family: 'Manrope', sans-serif;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 0.5rem;
+  }
+  .voice-pillar p { font-size: 0.82rem; }
+
+  /* Tone examples */
+  .tone-example {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; margin: 1.5rem 0;
+  }
+  @media (max-width: 700px) { .tone-example { grid-template-columns: 1fr; } }
+  .tone-col { border-radius: 8px; padding: 1.25rem; font-size: 0.82rem; line-height: 1.6; }
+  .tone-col .tone-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .tone-no { background: #F5E6E0; color: #6B4038; }
+  .tone-no .tone-label { color: #B5674B; }
+  .tone-yes { background: #E6EDE8; color: #3A4D3E; }
+  .tone-yes .tone-label { color: #5A7A5E; }
+  .tone-mid { background: #F0EDE6; color: #5C554C; }
+  .tone-mid .tone-label { color: #9B8E7E; }
+
+  /* Word lists */
+  .word-lists { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0; }
+  @media (max-width: 500px) { .word-lists { grid-template-columns: 1fr; } }
+  .word-list h4 { margin-bottom: 0.5rem; }
+  .word-list ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .word-list ul li { font-size: 0.78rem; padding: 0.25rem 0.65rem; border-radius: 4px; }
+  .word-list.yes ul li { background: #E6EDE8; color: #3A4D3E; }
+  .word-list.no ul li { background: #F5E6E0; color: #6B4038; text-decoration: line-through; opacity: 0.7; }
+
+  /* Manifesto */
+  .principles-list { counter-reset: principle; margin: 2.5rem 0; display: flex; flex-direction: column; gap: 2.25rem; }
+  .principle { counter-increment: principle; position: relative; padding-left: 3.5rem; }
+  .principle::before {
+    content: counter(principle, decimal-leading-zero);
+    position: absolute; left: 0; top: 0;
+    font-family: 'Literata', serif; font-size: 1.5rem;
+    font-weight: 300; color: var(--neutral); line-height: 1;
+  }
+  .principle h3 { font-family: 'Literata', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.35rem; }
+  .principle p { font-size: 0.86rem; }
+
+  /* Quick reference */
+  .quick-ref {
+    background: var(--anchor); border-radius: 14px;
+    padding: 3rem; margin: 2rem 0; color: var(--base);
+  }
+  .quick-ref h2 { color: var(--base); margin-bottom: 1.5rem; }
+  .quick-ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 600px) { .quick-ref-grid { grid-template-columns: 1fr; } }
+  .quick-ref-item h4 { color: var(--primary); opacity: 0.7; margin-bottom: 0.4rem; }
+  .quick-ref-item p { color: #9EA2A4; font-size: 0.82rem; }
+  .quick-ref-colors { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+  .quick-ref-colors .qr-dot { width: 28px; height: 28px; border-radius: 6px; }
+
+  /* Footer */
+  .guide-footer { text-align: center; padding: 3rem 2rem 4rem; border-top: 1px solid var(--neutral); }
+  .guide-footer p { font-size: 0.78rem; color: var(--body-light); max-width: 100%; margin: 0 auto; }
+
+  /* Utility */
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 1.5rem; }
+  .mt-4 { margin-top: 2rem; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="nav-brand">The Automation Foundry — Brand Guide</span>
+  <ul class="nav-links">
+    <li><a href="#foundation">Foundation</a></li>
+    <li><a href="#visual">Visual</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#principles">Principles</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ COVER ═══ -->
+<section class="cover">
+  <div class="cover-content">
+    <p class="eyebrow">Brand Guide v1.0</p>
+    <h1>The Automation Foundry</h1>
+    <p class="lead">This guide captures who we are, how we look, and how we speak — so that every touchpoint feels like what it is: thoughtful technology craftsmanship.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="meta-label">Status</span>
+        <span class="meta-value">Living document</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="meta-label">Last Updated</span>
+        <span class="meta-value">February 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="meta-label">Palette</span>
+        <span class="meta-value">Deep Current</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="meta-label">Typefaces</span>
+        <span class="meta-value">Literata · Manrope</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══ TABLE OF CONTENTS ═══ -->
+<div class="section">
+  <div class="toc">
+    <p class="eyebrow">Contents</p>
+    <div class="toc-grid">
+      <div class="toc-group">
+        <h4>I. Foundation</h4>
+        <a href="#essence">Brand Essence</a>
+        <a href="#qualities">Brand Qualities</a>
+        <a href="#values">Values</a>
+        <a href="#positioning">Positioning & ICP</a>
+      </div>
+      <div class="toc-group">
+        <h4>II. Visual Identity</h4>
+        <a href="#color">Color System</a>
+        <a href="#typography">Typography</a>
+        <a href="#logo">Logo System</a>
+        <a href="#imagery">Imagery Direction</a>
+      </div>
+      <div class="toc-group">
+        <h4>III. Voice</h4>
+        <a href="#voice-pillars">Voice Pillars</a>
+        <a href="#tone">Tone & Adaptation</a>
+        <a href="#writing">Writing Principles</a>
+        <a href="#words">Word Lists</a>
+      </div>
+      <div class="toc-group">
+        <h4>IV. Principles</h4>
+        <a href="#manifesto">Our Manifesto</a>
+        <a href="#reference">Quick Reference</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PART I — BRAND FOUNDATION              -->
+<!-- ═══════════════════════════════════════ -->
+
+<hr class="divider">
+<div class="section" id="foundation">
+  <p class="eyebrow">Part I</p>
+  <h1>Brand Foundation</h1>
+  <p class="lead">Before colors and fonts, there's philosophy. This section is the north star — everything else in this guide flows from these decisions.</p>
+</div>
+
+<div class="section" id="essence">
+  <div class="essence-block">
+    <p class="eyebrow">Brand Essence</p>
+    <h2>Helping people become more fully alive through thoughtfully leveraging technology.</h2>
+    <p>We exist because technology should serve human flourishing — not the other way around. We're a craft-oriented consultancy that helps business owners build systems, automations, and AI integrations with intention, so they can focus on the work and life that matters most.</p>
+  </div>
+
+  <h4 class="mt-4">Tagline</h4>
+  <p style="font-family: 'Literata', serif; font-size: 1.2rem; font-weight: 400; color: var(--anchor); font-style: italic;">Thoughtful technology craftsmanship.</p>
+  <p class="mt-2">"Thoughtful" speaks to intention and care. "Technology" is our medium. "Craftsmanship" signals that we approach our work the way an artisan approaches theirs — with patience, skill, and pride in the outcome.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="qualities">
+  <p class="eyebrow">Brand Qualities</p>
+  <h2>This, not that.</h2>
+  <p>These paired qualities define our personality. The first word is who we are. The second is the territory we deliberately avoid. Together, they create a corridor — wide enough to be expressive, narrow enough to be recognizable.</p>
+
+  <div class="qualities-grid">
+    <div class="quality-card">
+      <div class="quality-pair">Curious, <span class="not">not formal.</span></div>
+      <p>We lead with genuine interest, not polished corporate distance. We ask good questions. We admit when we don't know. Our expertise shows through our curiosity, not our credentials.</p>
+    </div>
+    <div class="quality-card">
+      <div class="quality-pair">Calm, <span class="not">not hectic.</span></div>
+      <p>In a world of urgency theater, we're the steady hand. Our communication, our process, and our design all carry an unhurried confidence. We create breathing room, not anxiety.</p>
+    </div>
+    <div class="quality-card">
+      <div class="quality-pair">Measured, <span class="not">not rigid.</span></div>
+      <p>We're intentional without being inflexible. We have strong principles held lightly. We plan thoughtfully and adapt readily. Structure serves us — we never serve structure.</p>
+    </div>
+    <div class="quality-card">
+      <div class="quality-pair">Human, <span class="not">not machine.</span></div>
+      <p>We build technology for people, and we never forget that. Emotions are a feature, not a bug. Every system we design has human flourishing as its success metric.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="values">
+  <p class="eyebrow">Values</p>
+  <h2>What we stand on.</h2>
+  <p>These aren't aspirational — they're operational. Every decision we make, every piece of content we create, every system we build should be traceable back to one of these.</p>
+
+  <div class="values-list">
+    <div class="value-item">
+      <h3>Authenticity</h3>
+      <p>Say what we mean and mean what we say. We believe in values-based living — and that starts with being honest about who we are, what we can do, and what we can't.</p>
+    </div>
+    <div class="value-item">
+      <h3>Craft</h3>
+      <p>Centered on people and timeless values, not technology and trends. We believe emotions are a feature, not a bug, and that technology is an accelerator — powerful when it amplifies what's already good, dangerous when it replaces what's deeply human.</p>
+    </div>
+    <div class="value-item">
+      <h3>Curiosity</h3>
+      <p>Grounded in intellectual humility and constant growth. We don't pretend to have all the answers. We ask better questions, stay hungry to learn, and treat every engagement as a chance to understand something new.</p>
+    </div>
+    <div class="value-item">
+      <h3>Clarity</h3>
+      <p>Writing is our superpower. We believe in curation and distillation, radical simplicity, and the conviction that focus is everything. If we can't explain it clearly, we don't understand it well enough.</p>
+    </div>
+    <div class="value-item">
+      <h3>Unhurried</h3>
+      <p>Work in wise, restful rhythms. We believe in oscillation — seasons of intensity balanced by seasons of rest. In gradual change over dramatic overhaul. In pushing over the next domino rather than trying to knock them all down at once.</p>
+      <p class="value-detail">Action orientation doesn't mean speed. It means doing the right next thing, at the right pace.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="positioning">
+  <p class="eyebrow">Positioning & ICP</p>
+  <h2>Who we serve, and why us.</h2>
+
+  <div class="positioning-box">
+    <p>The Automation Foundry is a craft-oriented technology consultancy for values-driven business owners who know that investing in the right systems is wise — and that hiring a specialist to build them is wiser.</p>
+  </div>
+
+  <h4>Our ideal client</h4>
+  <p>Solo operators through small business owners (1–25 people), across industries. What unites them isn't sector — it's disposition. They value quality over speed, people over metrics, and long-term partnership over quick transactions. They understand that great systems free them to be in their sweet spot.</p>
+
+  <h4 class="mt-4">What we do</h4>
+  <p>Four interconnected services: systems and automation consulting (strategy and implementation), AI integration and workflow optimization, fractional CTO and technology advisory, and training and education through guides, workshops, and deep-dive resources.</p>
+
+  <h4 class="mt-4">Our model</h4>
+  <p>We openly share high-clarity, high-value information as a qualifier and trust builder — through a public manifesto, educational content, frameworks, and interactive resources. This isn't a lead magnet strategy. It's a genuine commitment to transparency and generosity. The right people see themselves in our thinking and want to go deeper. The wrong-fit people self-select out early, which respects everyone's time.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PART II — VISUAL IDENTITY              -->
+<!-- ═══════════════════════════════════════ -->
+
+<hr class="divider">
+<div class="section" id="visual">
+  <p class="eyebrow">Part II</p>
+  <h1>Visual Identity</h1>
+  <p class="lead">Our visual system is built to feel like the brand it represents: warm but not saccharine, precise but not cold, distinctive but not loud.</p>
+</div>
+
+<div class="section-wide" id="color">
+  <p class="eyebrow">Color System — Deep Current</p>
+  <h2>Five colors with a job to do.</h2>
+  <p>Our palette evokes deep water, weathered metal, and quiet confidence. The muted blue-teal primary carries authority without coldness. The warm copper accent keeps it from feeling corporate.</p>
+
+  <div class="palette-display">
+    <div class="palette-swatch" style="background:#F0EFEB; flex:6;"><span class="swatch-info"><span class="swatch-name dark">Limestone</span></span></div>
+    <div class="palette-swatch" style="background:#D2D4D0; flex:2;"><span class="swatch-info"><span class="swatch-name dark">Mist</span></span></div>
+    <div class="palette-swatch" style="background:#4E6A78; flex:3;"><span class="swatch-info"><span class="swatch-name light">Current</span></span></div>
+    <div class="palette-swatch" style="background:#BF7E4A; flex:1;"><span class="swatch-info"><span class="swatch-name light">Copper</span></span></div>
+    <div class="palette-swatch" style="background:#262B2E; flex:2;"><span class="swatch-info"><span class="swatch-name light">Ink</span></span></div>
+  </div>
+
+  <div class="color-specs">
+    <div class="color-spec">
+      <div class="dot" style="background:#F0EFEB;"></div>
+      <span class="spec-role">60% · Base</span>
+      <span class="spec-name">Limestone</span>
+      <span class="spec-hex">#F0EFEB</span>
+      <span class="spec-rgb">RGB 240, 239, 235</span>
+    </div>
+    <div class="color-spec">
+      <div class="dot" style="background:#D2D4D0;"></div>
+      <span class="spec-role">Neutral</span>
+      <span class="spec-name">Mist</span>
+      <span class="spec-hex">#D2D4D0</span>
+      <span class="spec-rgb">RGB 210, 212, 208</span>
+    </div>
+    <div class="color-spec">
+      <div class="dot" style="background:#4E6A78;"></div>
+      <span class="spec-role">30% · Primary</span>
+      <span class="spec-name">Current</span>
+      <span class="spec-hex">#4E6A78</span>
+      <span class="spec-rgb">RGB 78, 106, 120</span>
+    </div>
+    <div class="color-spec">
+      <div class="dot" style="background:#BF7E4A;"></div>
+      <span class="spec-role">10% · Accent</span>
+      <span class="spec-name">Copper</span>
+      <span class="spec-hex">#BF7E4A</span>
+      <span class="spec-rgb">RGB 191, 126, 74</span>
+    </div>
+    <div class="color-spec">
+      <div class="dot" style="background:#262B2E;"></div>
+      <span class="spec-role">Anchor</span>
+      <span class="spec-name">Ink</span>
+      <span class="spec-hex">#262B2E</span>
+      <span class="spec-rgb">RGB 38, 43, 46</span>
+    </div>
+  </div>
+
+  <h4>Proportion — the 60/30/10 rule</h4>
+  <p>Limestone dominates as the background canvas (60%). Current appears in navigation, headings, cards, and supporting elements (30%). Copper is used sparingly — for CTAs, links, and moments of warmth (10%). Mist and Ink serve structural roles: borders, dividers, body text, and dark-mode surfaces.</p>
+  <div class="proportion-bar">
+    <div style="flex: 6; background: #F0EFEB; color: #555859;">60% Limestone</div>
+    <div style="flex: 3; background: #4E6A78; color: #F0EFEB;">30% Current</div>
+    <div style="flex: 1; background: #BF7E4A; color: #F0EFEB;">10%</div>
+  </div>
+
+  <h4 class="mt-4">Dark mode</h4>
+  <p>In dark mode, Ink becomes the background surface. Body text shifts to Limestone at roughly 87% opacity. Current and Copper remain consistent — they're the thread of identity connecting both modes. Never invert colors directly; adjust for the context while preserving the personality.</p>
+
+  <h4 class="mt-4">Accessibility</h4>
+  <p>Ink on Limestone passes WCAG AA at 12.4:1 contrast. Current on Limestone passes at 4.6:1 (sufficient for large text and UI components). Copper on Limestone achieves 3.6:1 — use at 18px or larger, or pair with Ink for smaller text. Always test pairings.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section-wide" id="typography">
+  <p class="eyebrow">Typography</p>
+  <h2>Literata meets Manrope.</h2>
+  <p>A humanist reading serif paired with a geometric sans-serif. Literata brings warmth, craft, and quiet authority to headings. Manrope brings clarity and modern legibility to body copy and UI. Together: craft meets technology.</p>
+
+  <div class="type-specimen">
+    <div style="font-family: 'Literata', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; line-height: 1.15; color: var(--anchor); margin-bottom: 0.75rem;">
+      We believe emotions are a feature, not a bug.
+    </div>
+    <div style="font-family: 'Manrope', sans-serif; font-weight: 300; font-size: 0.92rem; color: var(--body); line-height: 1.7; max-width: 520px;">
+      The best systems are built at a human pace, by people who care about the outcome as much as the process. Technology should amplify what's already good — not replace what's deeply human.
+    </div>
+  </div>
+
+  <h4>Type Scale</h4>
+  <p>Built on a 1.25 ratio (Major Third) from a 16px base. All line heights align to a 4px grid.</p>
+
+  <div class="type-scale">
+    <div class="type-scale-row">
+      <span class="scale-label">H1</span>
+      <span class="scale-meta">Literata 400 · 48/56px</span>
+      <span style="font-family: 'Literata', serif; font-size: 1.5rem; font-weight: 400; color: var(--anchor);">Thoughtful craft</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="scale-label">H2</span>
+      <span class="scale-meta">Literata 400 · 32/40px</span>
+      <span style="font-family: 'Literata', serif; font-size: 1.25rem; font-weight: 400; color: var(--anchor);">Thoughtful craft</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="scale-label">H3</span>
+      <span class="scale-meta">Literata 500 · 24/32px</span>
+      <span style="font-family: 'Literata', serif; font-size: 1.05rem; font-weight: 500; color: var(--anchor);">Thoughtful craft</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="scale-label">Body</span>
+      <span class="scale-meta">Manrope 300 · 16/24px</span>
+      <span style="font-family: 'Manrope', sans-serif; font-size: 0.88rem; font-weight: 300; color: var(--body);">The best systems are built at a human pace.</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="scale-label">Small</span>
+      <span class="scale-meta">Manrope 400 · 14/20px</span>
+      <span style="font-family: 'Manrope', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--body);">The best systems are built at a human pace.</span>
+    </div>
+    <div class="type-scale-row">
+      <span class="scale-label">Eyebrow</span>
+      <span class="scale-meta">Manrope 500 · 11/16px · Caps</span>
+      <span style="font-family: 'Manrope', sans-serif; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary);">Brand Foundation</span>
+    </div>
+  </div>
+
+  <h4 class="mt-4">Weights & spacing</h4>
+  <p>Three weights per typeface. Literata: Light (300), Regular (400), Medium (500). Manrope: Light (300), Regular (400), Medium (500). Avoid bold — confidence comes from hierarchy, not heaviness. Body text at default tracking. Headings 32px+ get -0.01em. All-caps eyebrows get +0.08 to +0.12em.</p>
+
+  <h4 class="mt-4">Fallback chain</h4>
+  <p>Literata → Georgia → "Times New Roman" → serif. Manrope → "Helvetica Neue" → Helvetica → Arial → sans-serif.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section-wide" id="logo">
+  <p class="eyebrow">Logo System</p>
+  <h2>The mark and the lockup.</h2>
+  <p>Two overlapping circles represent the intersection of human need and technological capability. The hatched intersection uses Current on light backgrounds and Copper on dark — a subtle but meaningful shift that connects the logo to the full palette system.</p>
+
+  <div class="logo-display on-light">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357 120" width="420" height="141">
+      <defs>
+        <pattern id="hg1" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(60)"><line x1="0" y1="0" x2="0" y2="5" stroke="#4E6A78" stroke-width="3"/></pattern>
+        <clipPath id="cg1"><circle cx="40.6" cy="60" r="25.6"/></clipPath>
+      </defs>
+      <circle cx="72.2" cy="60" r="25.6" fill="url(#hg1)" clip-path="url(#cg1)"/>
+      <circle cx="40.6" cy="60" r="25.6" fill="none" stroke="#262B2E" stroke-width="3.2"/>
+      <circle cx="72.2" cy="60" r="25.6" fill="none" stroke="#262B2E" stroke-width="3.2"/>
+      <rect x="105.8" y="34.4" width="27.8" height="51.2" rx="3" fill="#4E6A78"/>
+      <g fill="#F0EFEB" transform="translate(119.8,60.0) rotate(-90) translate(-17.1,6.7)"><path d="M511 0V1271H20V1440H1180V1271H689V0Z" transform="translate(0.00,0) scale(0.009354,-0.009354)"/><path d="M140 0V1440H318V805H1076V1440H1254V0H1076V636H318V0Z" transform="translate(10.85,0) scale(0.009354,-0.009354)"/><path d="M140 0V1440H1050V1271H318V820H930V651H318V169H1050V0Z" transform="translate(23.52,0) scale(0.009354,-0.009354)"/></g>
+      <g fill="#262B2E"><path d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" transform="translate(141.69,56.00) scale(0.015,-0.015)"/><path d="M726 -30Q552 -30 420.0 40.5Q288 111 214.0 239.0Q140 367 140 540V1438L416 1440V542Q416 471 440.0 413.0Q464 355 506.5 313.0Q549 271 605.5 248.5Q662 226 726 226Q792 226 848.5 249.0Q905 272 947.0 314.0Q989 356 1012.5 414.0Q1036 472 1036 542V1440H1312V540Q1312 367 1238.0 239.0Q1164 111 1032.0 40.5Q900 -30 726 -30Z" transform="translate(161.58,56.00) scale(0.015,-0.015)"/><path d="M474 0V1186H20V1440H1200V1186H746V0Z" transform="translate(182.76,56.00) scale(0.015,-0.015)"/><path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(200.46,56.00) scale(0.015,-0.015)"/><path d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" transform="translate(222.60,56.00) scale(0.015,-0.015)"/><path d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" transform="translate(247.80,56.00) scale(0.015,-0.015)"/><path d="M474 0V1186H20V1440H1200V1186H746V0Z" transform="translate(267.69,56.00) scale(0.015,-0.015)"/><path d="M160 0V1440H432V0Z" transform="translate(285.39,56.00) scale(0.015,-0.015)"/><path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(293.67,56.00) scale(0.015,-0.015)"/><path d="M140 0V1440H416L1042 480V1440H1318V0H1042L416 960V0Z" transform="translate(315.81,56.00) scale(0.015,-0.015)"/></g>
+      <g fill="#262B2E"><path d="M140 0V1440H1020V1168H412V856H900V584H412V0Z" transform="translate(141.69,85.60) scale(0.015,-0.015)"/><path d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" transform="translate(156.99,85.60) scale(0.015,-0.015)"/><path d="M726 -30Q552 -30 420.0 40.5Q288 111 214.0 239.0Q140 367 140 540V1438L416 1440V542Q416 471 440.0 413.0Q464 355 506.5 313.0Q549 271 605.5 248.5Q662 226 726 226Q792 226 848.5 249.0Q905 272 947.0 314.0Q989 356 1012.5 414.0Q1036 472 1036 542V1440H1312V540Q1312 367 1238.0 239.0Q1164 111 1032.0 40.5Q900 -30 726 -30Z" transform="translate(179.13,85.60) scale(0.015,-0.015)"/><path d="M140 0V1440H416L1042 480V1440H1318V0H1042L416 960V0Z" transform="translate(200.31,85.60) scale(0.015,-0.015)"/><path d="M140 0V1440H606Q623 1440 676.0 1439.0Q729 1438 778 1432Q952 1411 1073.0 1311.0Q1194 1211 1257.0 1057.0Q1320 903 1320 720Q1320 537 1257.0 383.0Q1194 229 1073.0 129.0Q952 29 778 8Q729 2 676.0 1.0Q623 0 606 0ZM416 256H606Q633 256 679.0 257.5Q725 259 762 266Q856 285 915.5 354.0Q975 423 1003.5 520.0Q1032 617 1032 720Q1032 828 1002.5 925.0Q973 1022 913.0 1089.0Q853 1156 762 1174Q725 1182 679.0 1183.0Q633 1184 606 1184H416Z" transform="translate(221.58,85.60) scale(0.015,-0.015)"/><path d="M140 0V1440H748Q769 1440 804.5 1438.5Q840 1437 868 1432Q997 1412 1079.5 1347.0Q1162 1282 1201.0 1183.5Q1240 1085 1240 964Q1240 783 1150.0 654.5Q1060 526 868 496L748 488H412V0ZM952 0 668 586 948 640 1260 0ZM412 742H736Q757 742 782.0 744.0Q807 746 828 752Q883 767 913.0 802.5Q943 838 954.5 881.5Q966 925 966 964Q966 1003 954.5 1046.5Q943 1090 913.0 1125.5Q883 1161 828 1176Q807 1182 782.0 1184.0Q757 1186 736 1186H412Z" transform="translate(242.28,85.60) scale(0.015,-0.015)"/><path d="M492 0V586L0 1440H318L630 898L942 1440H1260L768 586V0Z" transform="translate(261.78,85.60) scale(0.015,-0.015)"/></g>
+    </svg>
+  </div>
+
+  <h4>Icon variants</h4>
+  <div class="logo-variants">
+    <div class="logo-variant" style="background: var(--base);">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="72" height="72"><defs><pattern id="hil" patternUnits="userSpaceOnUse" width="4.5" height="4.5" patternTransform="rotate(60)"><line x1="0" y1="0" x2="0" y2="4.5" stroke="#4E6A78" stroke-width="2.6"/></pattern><clipPath id="cil"><circle cx="39" cy="50" r="24"/></clipPath></defs><circle cx="61" cy="50" r="24" fill="url(#hil)" clip-path="url(#cil)"/><circle cx="39" cy="50" r="24" fill="none" stroke="#262B2E" stroke-width="3"/><circle cx="61" cy="50" r="24" fill="none" stroke="#262B2E" stroke-width="3"/></svg>
+      <span class="variant-label">On Light</span>
+    </div>
+    <div class="logo-variant" style="background: var(--anchor);">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="72" height="72"><defs><pattern id="hid" patternUnits="userSpaceOnUse" width="4.5" height="4.5" patternTransform="rotate(60)"><line x1="0" y1="0" x2="0" y2="4.5" stroke="#BF7E4A" stroke-width="2.6"/></pattern><clipPath id="cid"><circle cx="39" cy="50" r="24"/></clipPath></defs><circle cx="61" cy="50" r="24" fill="url(#hid)" clip-path="url(#cid)"/><circle cx="39" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/><circle cx="61" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/></svg>
+      <span class="variant-label" style="color: #9EA2A4;">On Dark</span>
+    </div>
+    <div class="logo-variant" style="background: var(--primary);">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="72" height="72"><defs><pattern id="hip" patternUnits="userSpaceOnUse" width="4.5" height="4.5" patternTransform="rotate(60)"><line x1="0" y1="0" x2="0" y2="4.5" stroke="#BF7E4A" stroke-width="2.6"/></pattern><clipPath id="cip"><circle cx="39" cy="50" r="24"/></clipPath></defs><circle cx="61" cy="50" r="24" fill="url(#hip)" clip-path="url(#cip)"/><circle cx="39" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/><circle cx="61" cy="50" r="24" fill="none" stroke="#F0EFEB" stroke-width="3"/></svg>
+      <span class="variant-label" style="color: rgba(240,239,235,0.5);">On Primary</span>
+    </div>
+  </div>
+
+  <h4 class="mt-3">Clear space & minimum size</h4>
+  <p>Maintain clear space equal to the radius of one circle on all sides. Full lockup minimum: 180px wide (digital) or 1.5" (print). Icon minimum: 32px (digital) or 0.4" (print).</p>
+
+  <h4 class="mt-3">What not to do</h4>
+  <p>Don't stretch, rotate, or recolor outside approved variants. Don't add shadows, gradients, or outlines. Don't place on busy backgrounds without contrast. Don't separate elements from the lockup. Don't use the badge element independently.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="imagery">
+  <p class="eyebrow">Imagery Direction</p>
+  <h2>Three layers, one visual world.</h2>
+  <p>Our imagery system uses three distinct approaches, each with a clear role. Together they create a visual language that feels handmade, intentional, and unmistakably ours.</p>
+
+  <div class="imagery-tiers">
+    <div class="imagery-tier tier-primary">
+      <span class="tier-badge">Primary — Identity</span>
+      <h3>Watercolor washes</h3>
+      <p>Abstract watercolor textures in palette colors — muted blues, warm coppers, soft limestone. Used for hero backgrounds, section dividers, and accent elements. This is what makes us visually unmistakable. The organic, handmade quality that separates us from every tech company with a gradient.</p>
+    </div>
+    <div class="imagery-tier tier-secondary">
+      <span class="tier-badge">Secondary — Clarity</span>
+      <h3>Abstract line art</h3>
+      <p>Minimal, geometric line illustrations for diagrams, process flows, and icons. Fine strokes in Current or Ink on light backgrounds, Limestone or Copper on dark. Structured enough to feel precise, hand-drawn enough to feel human.</p>
+    </div>
+    <div class="imagery-tier tier-tertiary">
+      <span class="tier-badge">Tertiary — Proof</span>
+      <h3>Monochromatic photography</h3>
+      <p>High-contrast, warm-toned black and white. Used sparingly for case studies, team imagery, workspace shots. Always candid, never posed. Warm highlights, lifted shadows. Shows the real — people, spaces, work in progress.</p>
+    </div>
+  </div>
+
+  <h4 class="mt-3">Art direction notes</h4>
+  <p>Natural light, warm tones, shallow depth of field. Show hands at work. Calm, focused expressions. Clean but lived-in environments. No stock photography, no corporate settings, no forced smiles, no people pointing at screens.</p>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PART III — VOICE & WRITING             -->
+<!-- ═══════════════════════════════════════ -->
+
+<hr class="divider">
+<div class="section" id="voice">
+  <p class="eyebrow">Part III</p>
+  <h1>Voice & Writing</h1>
+  <p class="lead">For a consulting company, written communication is the primary brand touchpoint. Every email, proposal, and blog post — that's where people experience who we are. Voice is personality (constant). Tone is mood (variable).</p>
+</div>
+
+<div class="section" id="voice-pillars">
+  <p class="eyebrow">Voice Pillars</p>
+  <h2>Four commitments, always on.</h2>
+
+  <div class="voice-pillars">
+    <div class="voice-pillar">
+      <h3>Plainspoken Expertise</h3>
+      <p>We explain complex technology clearly. We're the translator, not the lecturer. If jargon doesn't serve the reader, we don't use it. We earn trust by making things understandable.</p>
+    </div>
+    <div class="voice-pillar">
+      <h3>Thoughtful Intentionality</h3>
+      <p>Every word has purpose. We don't rush, pad, or hype. Short sentences for impact, longer ones for nuance. White space on the page reflects white space in the mind.</p>
+    </div>
+    <div class="voice-pillar">
+      <h3>Warm Confidence</h3>
+      <p>Certain of our craft without arrogance. "Here's what we've found" rather than "As industry experts." Our confidence is quiet — it doesn't need to announce itself.</p>
+    </div>
+    <div class="voice-pillar">
+      <h3>Honest Partnership</h3>
+      <p>We speak directly and acknowledge complexity. We don't oversimplify, and we don't pretend every problem has a clean solution. When we don't know, we say so.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="tone">
+  <p class="eyebrow">Tone Adaptation</p>
+  <h2>Same voice, different rooms.</h2>
+  <p>Our voice stays constant. Tone shifts by context — like a real person adapts their energy while staying authentically themselves.</p>
+
+  <h4 class="mt-4">By context</h4>
+  <p><strong style="color:var(--anchor);">Onboarding a client:</strong> <span style="color:var(--primary); font-style:italic;">Warm, welcoming, unhurried.</span></p>
+  <p><strong style="color:var(--anchor);">Delivering a project:</strong> <span style="color:var(--primary); font-style:italic;">Confident, clear, measured pride.</span></p>
+  <p><strong style="color:var(--anchor);">Explaining a problem:</strong> <span style="color:var(--primary); font-style:italic;">Direct, calm, solution-oriented.</span></p>
+  <p><strong style="color:var(--anchor);">Educational content:</strong> <span style="color:var(--primary); font-style:italic;">Curious, exploratory, generous.</span></p>
+
+  <h4 class="mt-4">What this sounds like</h4>
+  <p>A project update email, written three ways. The first two are wrong. The third is us.</p>
+
+  <div class="tone-example">
+    <div class="tone-col tone-no">
+      <div class="tone-label">✕ Too corporate</div>
+      "We are pleased to inform you of significant progress across all deliverables. The technical implementation phase has been completed per the agreed-upon specification."
+    </div>
+    <div class="tone-col tone-mid">
+      <div class="tone-label">✕ Too casual</div>
+      "Hey! Tons of awesome stuff happened this week!! We crushed the API integration and everything's looking great! 🎉"
+    </div>
+    <div class="tone-col tone-yes">
+      <div class="tone-label">✓ On brand</div>
+      "Good progress this week. We completed the API integration and ran initial tests — everything's working as expected. A few things worth discussing before the next phase."
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="writing">
+  <p class="eyebrow">Writing Principles</p>
+  <h2>How we write.</h2>
+  <div class="values-list">
+    <div class="value-item">
+      <h3>Use active voice</h3>
+      <p>"We built the integration" not "The integration was built." Active voice is clearer, shorter, and more honest about who did what.</p>
+    </div>
+    <div class="value-item">
+      <h3>Use contractions</h3>
+      <p>"We're" not "We are." Contractions make writing sound like speech, which is how we want to sound — like a real person talking to another real person.</p>
+    </div>
+    <div class="value-item">
+      <h3>Lead with what matters to the reader</h3>
+      <p>Don't make people dig for the point. Open with the outcome, then provide context. Respect their time.</p>
+    </div>
+    <div class="value-item">
+      <h3>Vary sentence rhythm</h3>
+      <p>Short sentences create impact. Longer sentences carry nuance. Mix them. Read aloud — if you can't breathe naturally, restructure.</p>
+    </div>
+    <div class="value-item">
+      <h3>Prefer short paragraphs</h3>
+      <p>One idea per paragraph. Three to four sentences maximum. White space is thinking space.</p>
+    </div>
+    <div class="value-item">
+      <h3>Show, don't just tell</h3>
+      <p>Instead of saying "we're experts," show the thinking. Let the quality of the writing be the evidence for the quality of the work.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section" id="words">
+  <p class="eyebrow">Word Lists</p>
+  <h2>Yes, and no.</h2>
+  <p>These aren't exhaustive — they're calibration tools. When in doubt: "Would I say this across the table to someone I respect?"</p>
+  <div class="word-lists">
+    <div class="word-list yes">
+      <h4>Words we use</h4>
+      <ul>
+        <li>thoughtful</li><li>craft</li><li>build</li><li>understand</li><li>explore</li><li>clarity</li><li>intention</li><li>rhythm</li><li>care</li><li>partnership</li><li>steady</li><li>honest</li><li>human</li><li>purpose</li><li>simplify</li><li>refine</li><li>curious</li><li>flourish</li>
+      </ul>
+    </div>
+    <div class="word-list no">
+      <h4>Words we avoid</h4>
+      <ul>
+        <li>leverage (verb)</li><li>synergy</li><li>disrupt</li><li>cutting-edge</li><li>revolutionary</li><li>game-changing</li><li>scalable</li><li>best-in-class</li><li>seamless</li><li>turnkey</li><li>robust</li><li>utilize</li><li>paradigm</li><li>ecosystem</li><li>hack</li><li>crush it</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PART IV — PRINCIPLES & MANIFESTO       -->
+<!-- ═══════════════════════════════════════ -->
+
+<hr class="divider">
+<div class="section" id="principles">
+  <p class="eyebrow">Part IV</p>
+  <h1>Our Principles</h1>
+  <p class="lead">These are meant to be shared publicly — both as a statement of who we are and as a filter for who we work with. The right people will see themselves in these words. That's the point.</p>
+</div>
+
+<div class="section" id="manifesto">
+  <p class="eyebrow">The Automation Foundry Manifesto — Draft</p>
+  <h2>What we believe about technology and being human.</h2>
+
+  <div class="principles-list">
+    <div class="principle">
+      <h3>Technology should make you more fully alive — not more fully busy.</h3>
+      <p>The measure of a good system isn't how much it can do. It's how much space it creates for the things that matter — deep work, real relationships, rest, and the creative pursuits that make you feel like yourself.</p>
+    </div>
+    <div class="principle">
+      <h3>Emotions are a feature, not a bug.</h3>
+      <p>Frustration with your tools is data. Excitement about a new possibility is signal. The way technology makes you feel isn't secondary to what it does — it's part of the outcome. We design for the whole human.</p>
+    </div>
+    <div class="principle">
+      <h3>The best systems are built at a human pace.</h3>
+      <p>Rushing creates technical debt and relational debt in equal measure. A little bit at a time, consistently, beats everything.</p>
+    </div>
+    <div class="principle">
+      <h3>Clarity is kindness.</h3>
+      <p>If we can't explain it simply, we don't understand it well enough. Clear writing, clear systems, and clear communication are acts of respect for the people on the other end.</p>
+    </div>
+    <div class="principle">
+      <h3>People over tools. Always.</h3>
+      <p>We're centered on timeless values, not trending technology. Tools change constantly. The humans using them — their needs, their capacity for growth — those are what we build around.</p>
+    </div>
+    <div class="principle">
+      <h3>Generosity is a business model.</h3>
+      <p>We share what we know openly, not as a tactic, but because transparency builds the kind of trust that makes good work possible. The right relationships start with giving.</p>
+    </div>
+    <div class="principle">
+      <h3>Do the right thing, even when it's the slow thing.</h3>
+      <p>We value quality over speed, integrity over efficiency, and doing what's right for people over what's merely expedient. Not every system should be automated. Part of our job is knowing the difference.</p>
+    </div>
+  </div>
+
+  <p class="mt-3" style="font-style: italic; color: var(--body-light); font-size: 0.84rem;">This manifesto is a draft, meant to be refined through use and conversation. The deeper "why" essay behind these principles is a future piece — these seven points are the distilled version that can stand alone on a website page or print piece.</p>
+</div>
+
+<hr class="divider">
+
+<!-- ═══ QUICK REFERENCE ═══ -->
+<div class="section" id="reference">
+  <p class="eyebrow">Quick Reference</p>
+  <h2>Brand in 30 seconds.</h2>
+  <p>The essentials for anyone representing The Automation Foundry.</p>
+
+  <div class="quick-ref">
+    <h2>The Automation Foundry</h2>
+    <div class="quick-ref-grid">
+      <div class="quick-ref-item">
+        <h4>Tagline</h4>
+        <p>Thoughtful technology craftsmanship.</p>
+      </div>
+      <div class="quick-ref-item">
+        <h4>Brand Qualities</h4>
+        <p>Curious, not formal. Calm, not hectic. Measured, not rigid. Human, not machine.</p>
+      </div>
+      <div class="quick-ref-item">
+        <h4>Palette — Deep Current</h4>
+        <div class="quick-ref-colors">
+          <div class="qr-dot" style="background:#F0EFEB;" title="Limestone"></div>
+          <div class="qr-dot" style="background:#D2D4D0;" title="Mist"></div>
+          <div class="qr-dot" style="background:#4E6A78;" title="Current"></div>
+          <div class="qr-dot" style="background:#BF7E4A;" title="Copper"></div>
+          <div class="qr-dot" style="background:#262B2E;" title="Ink"></div>
+        </div>
+        <p style="margin-top:0.35rem;">#F0EFEB · #D2D4D0 · #4E6A78 · #BF7E4A · #262B2E</p>
+      </div>
+      <div class="quick-ref-item">
+        <h4>Typefaces</h4>
+        <p>Literata (headings, display) · Manrope (body, UI)</p>
+      </div>
+      <div class="quick-ref-item">
+        <h4>Voice</h4>
+        <p>Plainspoken expertise. Thoughtful intentionality. Warm confidence. Honest partnership.</p>
+      </div>
+      <div class="quick-ref-item">
+        <h4>Values</h4>
+        <p>Authenticity · Craft · Curiosity · Clarity · Unhurried</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="guide-footer">
+  <p>The Automation Foundry — Brand Guide v1.0 · February 2026 · This is a living document.</p>
+</div>
+
+</body>
+</html>

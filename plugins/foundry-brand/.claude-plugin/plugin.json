@@ -1,0 +1,8 @@
+{
+  "name": "foundry-brand",
+  "description": "Produce and critique communications in The Automation Foundry's brand — web pages, proposals, emails, and decks — using verified design tokens (Literata + Manrope; Limestone base with Current/Copper accents), signature components, real logo assets, voice, and the brand manifesto.",
+  "author": {
+    "name": "The Automation Foundry"
+  },
+  "skills": "./skills/"
+}

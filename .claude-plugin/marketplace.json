@@ -8,6 +8,11 @@
       "name": "ratchet",
       "source": "./plugins/ratchet",
       "description": "Ratchet productivity framework — Notion-backed methodology, skills, and vocabulary"
+    },
+    {
+      "name": "foundry-brand",
+      "source": "./plugins/foundry-brand",
+      "description": "Produce and critique communications in The Automation Foundry's brand — design tokens, voice, and manifesto"
     }
   ]
 }
